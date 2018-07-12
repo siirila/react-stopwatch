@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock.js';
+import StartPauseButton from './StartPauseButton.js';
+import ClearButton from './ClearButton.js';
 
 
 let removeClock = false;
@@ -17,6 +19,9 @@ class App extends Component {
         { removeClock &&
           <button type="button" onClick={() => {removeClock = false; this.forceUpdate()}}>Add clock</button>
         }
+        <br />
+        <StartPauseButton />
+        <ClearButton />
       </div>
     );
   }
