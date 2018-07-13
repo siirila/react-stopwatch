@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock.js';
-import StartPauseButton from './StartPauseButton.js';
-import ClearButton from './ClearButton.js';
+import Stopwatch from './Stopwatch.js';
 
 
 let removeClock = false;
@@ -20,8 +19,7 @@ class App extends Component {
           <button type="button" onClick={() => {removeClock = false; this.forceUpdate()}}>Add clock</button>
         }
         <br />
-        <StartPauseButton />
-        <ClearButton />
+        <Stopwatch />
       </div>
     );
   }

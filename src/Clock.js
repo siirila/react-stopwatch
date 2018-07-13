@@ -22,7 +22,7 @@ class Clock extends Component {
   }
 
   tick() {
-    console.log('Did somebody call for a big blue superhero!');
+    // console.log('Did somebody call for a big blue superhero!');
     this.setState({
       dateTime: new Date()
     });

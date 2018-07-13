@@ -7,3 +7,19 @@ Add a stopwatch component to our app
 * A way to start the stopwatch
 * A way to stop the stopwatch
 * A way to clear/reset the stopwatch
+
+## Design
+* Stopwatch
+    * TimeDisplay
+    * StartPauseButton
+    * ClearButton
+
+* State
+    * isRunning
+    * elapsedTime
+
+* Events
+    * start
+    * pause
+    * reset
+    
