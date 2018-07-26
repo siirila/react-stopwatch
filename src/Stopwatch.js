@@ -14,6 +14,7 @@ class Stopwatch extends Component {
 
         this.onStartOrPause = this.onStartOrPause.bind(this);
         this.tick = this.tick.bind(this);
+        this.onClear = this.onClear.bind(this);
     }
 
     onStartOrPause() {
@@ -21,7 +22,17 @@ class Stopwatch extends Component {
 
         this.setState({
             isRunning: isRunning,
+            previousTick: new Date(),
         });
+
+        setInterval(() => {
+            let sum = 0;
+            for(let i = 0; i < 10; i++) {
+                sum += i;
+            }
+            console.log(sum);
+            return sum;
+        }, 1);
 
         if (isRunning) {
             this.intervalId = setInterval(this.tick, 10);
@@ -30,9 +41,20 @@ class Stopwatch extends Component {
         }
     }
 
-    tick() {
+    onClear() {
         this.setState({
-            elapsedTime: this.state.elapsedTime + 10
+            elapsedTime: 0,
+            isRunning: false
+        });
+
+        clearInterval(this.intervalId);
+    }
+
+    tick() {
+        let now = new Date();
+        this.setState({
+            elapsedTime: this.state.elapsedTime + (now - this.state.previousTick),
+            previousTick: now
         });
     }
 
@@ -42,7 +64,7 @@ class Stopwatch extends Component {
                 <TimeDisplay time={this.state.elapsedTime} />
                 <br />
                 <StartPauseButton isRunning={this.state.isRunning} onStartOrPause={this.onStartOrPause} />
-                <ClearButton onClear={() => console.log('Clear button clicked')} />
+                <ClearButton onClear={this.onClear} isDisabled={this.state.isRunning || this.state.elapsedTime === 0} />
             </div>
         );
     }
