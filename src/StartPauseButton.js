@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './Button';
 
 class StartPauseButton extends Component {
     render() {
@@ -8,7 +9,7 @@ class StartPauseButton extends Component {
             text = "Pause";
         }
 
-        return <button type="button" onClick={this.props.onStartOrPause} >{text}</button>;
+        return <Button onClick={this.props.onStartOrPause} color="primary">{text}</Button>;
     }
 }
 

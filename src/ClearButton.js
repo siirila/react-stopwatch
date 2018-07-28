@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
+import Button from './Button';
 
 export default function ClearButton(props) {
-    return <button type="button" onClick={props.onClear} disabled={props.isDisabled} >Clear</button>;
+    return <Button onClick={props.onClear} disabled={props.isDisabled} color="secondary" >Clear</Button>;
 }

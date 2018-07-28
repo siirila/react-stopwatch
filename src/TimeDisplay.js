@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typography from '@material-ui/core/Typography';
 
 const hour = 1000 * 60 * 60;
 const minute = 1000 * 60;
@@ -12,5 +13,9 @@ export default function TimeDisplay(props) {
     let seconds = Math.floor(time / 1000);
     let tenthsOfASecond = Math.floor((time % 1000)/100);
 
-    return <div>{`${hours}:${minutes}:${seconds}::${tenthsOfASecond}`}</div>;
+    return (
+        <Typography variant="display4" bottomGutter>
+            {`${hours}:${minutes}:${seconds}.${tenthsOfASecond}`}
+        </Typography>
+    );
 }
